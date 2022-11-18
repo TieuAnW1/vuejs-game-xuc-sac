@@ -8,8 +8,11 @@
       />
       <!-- v-on:handleNewGame: tên sự kiện  -->
       <!-- handleNewGame(): tên function  -->
-      <Controls v-on:handleNewGame="handleNewGame()" />
-      <Dices :dices="dices" />
+      <Controls 
+      v-on:handleNewGame="handleNewGame()" 
+      v-on:rollDice="rollDice()"
+      />
+      <Dices :dices="dices"/>
       <PopupRule
         v-on:handleConfirm="handleConfirm"
         :isOpenPopUp="isOpenPopUp"
@@ -56,6 +59,15 @@ export default {
       //Hiển thị pop up -> show luật chơi
       this.isOpenPopUp = true;
       console.log(this.isOpenPopUp);
+    },
+    rollDice() {
+        console.log('App vue roll dice');
+        if(this.isPlaying) {
+            // xoay súc xắc
+            let dice1 = Math.floor(Math.random() * 6) + 1
+            let dice2 = Math.floor(Math.random() * 6) + 1
+            this.dices= [dice1, dice2]
+        } else alert('Chưa chơi mà bấm xoay gì ba...Bấm chơi đi.')
     }
   }
 };

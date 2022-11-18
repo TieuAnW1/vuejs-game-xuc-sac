@@ -4,8 +4,9 @@
       <i class="ion-ios-plus-outline"></i>
       New game
     </button>
-    <button class="control btn-roll">
-      <i class="ion-ios-loop"></i>Roll dice
+    <button class="control btn-roll" v-on:click="rollDice()">
+      <i class="ion-ios-loop"></i>
+      Roll dice
     </button>
     <button class="control btn-hold">
       <i class="ion-ios-download-outline"></i>Hold
@@ -25,6 +26,10 @@ export default {
       console.log("new game");
       // Kích hoạt sự kiện handleNewGame của App truyền vào
       this.$emit("handleNewGame");
+    },
+    rollDice(){
+        console.log('Roll dice')
+        this.$emit('rollDice')
     }
   }
 };
