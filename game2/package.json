@@ -1,6 +1,6 @@
 {
-  "name": "game1",
-  "description": "game1_desc",
+  "name": "game2",
+  "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "Liam <liam.n.sapotacorp@goshopmatic.com>",
   "license": "MIT",
@@ -25,7 +25,6 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
-    "prettier": "^1.12.1",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",

@@ -1,6 +1,6 @@
 <template lang="">
     <div class="wrapper-player">
-        <div class="player-panel winner" >
+        <div class="player-panel" :class="{active: activePlayer == 0}" >
             <div class="player-name">Player 1</div>
             <div class="player-score">{{scoresPlayerChild[0]}}</div>
             <div class="player-current-box">
@@ -9,7 +9,7 @@
             </div>
         </div>
     
-        <div class="player-panel" >
+        <div class="player-panel" :class="{active: activePlayer == 1}">
             <div class="player-name">Player 2</div>
             <div class="player-score">{{scoresPlayerChild[1]}}</div>
             <div class="player-current-box">

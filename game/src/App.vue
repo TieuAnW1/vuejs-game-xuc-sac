@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <div class="wrapper clearfix">
-        <Players />
+        <Players 
+            :scoresPlayerChild="scoresPlayer"
+            :currentScore="currentScore"
+            :activePlayer="activePlayer"
+        />
         <Controls/>
         <Dices/>
     
@@ -18,7 +22,9 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+        scoresPlayer: [33, 44],
+        currentScore: 30,
+        activePlayer: 1
     }
   },
   components:{
