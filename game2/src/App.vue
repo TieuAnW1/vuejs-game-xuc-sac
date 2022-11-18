@@ -9,8 +9,11 @@
       <!-- v-on:handleNewGame: tên sự kiện  -->
       <!-- handleNewGame(): tên function  -->
       <Controls v-on:handleNewGame="handleNewGame()" />
-      <Dices />
-      <PopupRule />
+      <Dices :dices="dices" />
+      <PopupRule
+        v-on:handleConfirm="handleConfirm"
+        :isOpenPopUp="isOpenPopUp"
+      />
     </div>
   </div>
 </template>
@@ -27,8 +30,9 @@ export default {
       scoresPlayer: [33, 44],
       currentScore: 27,
       activePlayer: 1,
-      isOpenPopUp: false
-      // isOpenPopUp: true,
+      isOpenPopUp: false,
+      isPlaying: false,
+      dices: [3, 5]
     };
   },
   components: {
@@ -38,6 +42,15 @@ export default {
     PopupRule
   },
   methods: {
+    handleConfirm() {
+      console.log("App Vue");
+      this.isOpenPopUp = false;
+      this.isPlaying = true;
+      this.activePlayer = 0;
+      this.currentScore = 0;
+      this.scoresPlayer = [0, 0];
+      this.dices = [6, 6];
+    },
     handleNewGame() {
       console.log("New game from App.vue");
       //Hiển thị pop up -> show luật chơi
