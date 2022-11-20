@@ -67,7 +67,22 @@ export default {
             let dice1 = Math.floor(Math.random() * 6) + 1
             let dice2 = Math.floor(Math.random() * 6) + 1
             this.dices= [dice1, dice2]
+            if(dice1 === 1 || dice2 === 1) {
+                setTimeout(()=>{
+                    alert(`Trúng 1 gòi. Đổi lượt chơi nhé player ${this.activePlayer + 1}`)
+                }, 200)
+                this.nextPlayer()
+            } else {
+                // Cộng dồn điểm tạm thời
+                this.currentScore = this.currentScore + dice1 + dice2 
+            }
         } else alert('Chưa chơi mà bấm xoay gì ba...Bấm chơi đi.')
+    },
+    nextPlayer(){
+        // Đổi lượt chơi
+        this.activePlayer = this.activePlayer === 0 ? 1 : 0
+        // Reset điểm tạm thời về 0
+        this.currentScore = 0
     }
   }
 };
