@@ -11,6 +11,7 @@
       <Controls 
       v-on:handleNewGame="handleNewGame()" 
       v-on:rollDice="rollDice()"
+      v-on:handleHoldScore="handleHoldScore()"
       />
       <Dices :dices="dices"/>
       <PopupRule
@@ -83,6 +84,25 @@ export default {
         this.activePlayer = this.activePlayer === 0 ? 1 : 0
         // Reset điểm tạm thời về 0
         this.currentScore = 0
+    },
+    handleHoldScore(){
+        if(this.isPlaying) {
+
+            console.log(1234);
+            console.log(this);
+            let {scoresPlayer, activePlayer, currentScore} = this
+            let oldScore = scoresPlayer[activePlayer]
+            // Cách 1: Sử dụng set để thay đổi giá trị của ô nhớ
+            // let scoreAfterClickHoldOn = oldScore + currentScore
+            // this.$set(this.scoresPlayer, activePlayer, scoreAfterClickHoldOn)
+            
+            // Cách 2: Thay đổi địa chỉ ô nhớ để Vue phàn ứng lại với giao diện
+            let cloneScorePlayer = [...scoresPlayer]
+            cloneScorePlayer[activePlayer] = oldScore + currentScore
+            this.scoresPlayer = cloneScorePlayer
+
+            this.nextPlayer()
+        } else alert('Chưa chơi mà bấm xoay gì ba...Bấm chơi đi.')
     }
   }
 };

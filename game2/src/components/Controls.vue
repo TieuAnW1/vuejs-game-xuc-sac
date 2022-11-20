@@ -8,8 +8,9 @@
       <i class="ion-ios-loop"></i>
       Roll dice
     </button>
-    <button class="control btn-hold">
-      <i class="ion-ios-download-outline"></i>Hold
+    <button class="control btn-hold" v-on:click="$emit('handleHoldScore')">
+      <i class="ion-ios-download-outline"></i>
+      Hold
     </button>
 
     <input type="number" placeholder="Final score" class="final-score" />
